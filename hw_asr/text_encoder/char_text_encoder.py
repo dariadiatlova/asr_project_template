@@ -1,6 +1,5 @@
 import json
 from pathlib import Path
-from string import ascii_lowercase
 from typing import List, Union
 
 import numpy as np
@@ -49,4 +48,5 @@ class CharTextEncoder(BaseTextEncoder):
 
     @classmethod
     def get_simple_alphabet(cls):
-        return cls(alphabet=list(ascii_lowercase + ' '))
+        russian_chars = "йцукенгшщзхъфывапролджэячсмитьбюё"
+        return cls(alphabet=list(russian_chars + ' '))
