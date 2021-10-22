@@ -1,6 +1,6 @@
 {
   "name": "default_config",
-  "n_gpu": 1,
+  "n_gpu": 0,
   "preprocessing": {
     "sr": 16000,
     "spectrogram": {
@@ -10,8 +10,13 @@
     }
   },
   "augmentations": {
-    "wave": [],
-    "spectrogram": []
+    "wave": false,
+    "spectrogram": false
+  },
+  "tokenizer": {
+    "train_mode": false,
+    "save_path": "/Users/diat.lov/GitHub/asr_project_template/hw_asr/datasets/saved/tokenizers/tokenizer_golos.json",
+    "load_path": "/Users/diat.lov/GitHub/asr_project_template/hw_asr/datasets/saved/tokenizers/tokenizer_golos.json"
   },
   "arch": {
     "type": "BaselineModel",
@@ -26,12 +31,12 @@
       "num_workers": 5,
       "datasets": [
         {
-          "type": "LibrispeechDataset",
-          "args": {
-            "part": "train-clean-100",
-            "max_audio_length": 20.0,
-            "max_text_length": 200
-          }
+          "json_filename": "manifest.jsonl",
+          "dataset_directory": "/Users/diat.lov/Data/audio_data/golos_opus/train_opus",
+          "lmdb": true,
+          "map_size": 9e12,
+          "dataset_size": 100,
+          "max_audio_length": 20
         }
       ]
     },
